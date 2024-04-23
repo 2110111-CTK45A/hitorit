@@ -1,0 +1,30 @@
+@startuml
+namespace DiscreteSpace {
+abstract class Tensor
+BitTensor --|> Tensor
+IncrementalTensor --|> Tensor
+Shape --o Tensor
+Domain --* Tensor
+SubDomain --* Domain
+}
+namespace HitoriGenerator {
+BinaryBoard "1" -- "*" ComplexBoard : uses
+ComplexBoard "1" -- "1" TestBoard : uses
+HitoriBoard ..> BinaryBoard
+HitoriBoard ..> ComplexBoard
+HitoriBoard ..> TestBoard
+}
+namespace cli {
+class CLI {
+log()
+usage()
+print()
+to_pdf()
+to_png()
+}
+}
+BitTensor --* BinaryBoard
+IncrementalTensor --* ComplexBoard
+IncrementalTensor --* TestBoard
+HitoriBoard--> CLI
+@enduml
