@@ -65,3 +65,6 @@ include_boost()
 
 add_executable(tests src/Tests.cpp ${SOURCES})
 target_compile_features(tests PRIVATE cxx_std_23)
+
+add_executable(program src/Program.cpp ${SOURCES})
+target_compile_features(program PRIVATE cxx_std_23)
